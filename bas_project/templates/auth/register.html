@@ -1,0 +1,39 @@
+<!-- templates/auth/register.html -->
+{% extends '../base.html' %}
+
+{% block title %}Регистрация | БАС Словарь{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Регистрация</h1>
+            <p class="auth-subtitle">Создайте аккаунт, чтобы получить доступ к истории поиска и списку избранного</p>
+            <div class="auth-switch">
+                Уже есть аккаунт? <a href="{{ url_for('login') }}">Войти</a>
+            </div>
+        </div>
+
+        <form class="auth-form">
+            <div class="form-group">
+                <label for="login">Логин</label>
+                <input type="text" id="login" placeholder="Например, Иван Иванов">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password">
+            </div>
+
+            <ul class="auth-features">
+                <li>Доступ к истории поиска</li>
+                <li>Сохранение избранных терминов</li>
+                <li>Синхронизация между устройствами</li>
+                <li>Персональные рекомендации</li>
+            </ul>
+
+            <button type="submit" class="btn btn-primary auth-submit">Создать аккаунт</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

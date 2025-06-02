@@ -1,0 +1,36 @@
+<!-- templates/auth/login.html -->
+{% extends '../base.html' %}
+
+{% block title %}Вход | БАС Словарь{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Вход</h1>
+            <p class="auth-subtitle">Войдите в аккаунт, чтобы получить доступ к истории поиска и списку избранного</p>
+            <div class="auth-switch">
+                Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a>
+            </div>
+        </div>
+
+        <form class="auth-form">
+            <div class="form-group">
+                <label for="login">Логин</label>
+                <input type="text" id="login">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password">
+            </div>
+
+            <div class="auth-actions">
+                <a href="{{ url_for('forgot_password') }}" class="forgot-password">Забыли пароль?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary auth-submit">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
