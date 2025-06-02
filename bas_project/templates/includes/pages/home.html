@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - Словарь терминов БАС{% endblock %}
+
+{% block content %}
+<section class="translation-box">
+    <h1 class="translation-title">Переводите термины и выражения в области беспилотных авиационных систем</h1>
+    
+    <div class="language-tabs">
+        <div class="tab active">Русский</div>
+        <div class="tab">Английский</div>
+    </div>
+    
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="Введите слово, выражение, аббревиатуру">
+        <button class="search-btn">Найти</button>
+    </div>
+    
+    <p class="description">
+        Получите перевод тысяч терминов и выражений в области беспилотников благодаря нашей важности и любовь в основе большого количества питательных данных.
+    </p>
+    
+    <div class="app-download">
+        <a href="#" class="app-btn">
+            <span>Google Play</span>
+        </a>
+        <a href="#" class="app-btn">
+            <span>App Store</span>
+        </a>
+    </div>
+</section>
+
+<section class="subscription-section">
+    <h2 class="subscription-title">Больше возможностей с подпиской БАС:</h2>
+    
+    <ul class="benefits">
+        <li class="benefit-item">Неограниченное количество запросов</li>
+        <li class="benefit-item">Построение цепочки поставок</li>
+        <li class="benefit-item">Развернутый аналитический отчет</li>
+        <li class="benefit-item">Инфография</li>
+        <li class="benefit-item">Никакой рекламы</li>
+    </ul>
+    
+    <button class="btn btn-primary">Объяснить подписку БАС</button>
+</section>
+{% endblock %}
