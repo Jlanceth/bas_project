@@ -1,0 +1,113 @@
+<!-- templates/pages/search.html -->
+{% extends '../base.html' %}
+
+{% block title %}Поиск терминов БАС | БАС Словарь{% endblock %}
+
+{% block content %}
+<section class="search-page">
+    <div class="search-header">
+        <h1>Поиск терминов беспилотных авиационных систем</h1>
+        <p class="search-subtitle">Найдите нужный термин на русском, английском или китайском языке</p>
+    </div>
+
+    <div class="search-container">
+        <div class="search-box">
+            <form action="/search" method="get">
+                <div class="search-input-group">
+                    <input type="text" 
+                           name="q" 
+                           class="search-input" 
+                           placeholder="Введите термин, например: 'ДПАС' или 'RPAS'"
+                           value="{{ query if query }}">
+                    <button type="submit" class="search-button">
+                        <svg class="search-icon" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <label class="filter-option">
+                        <input type="radio" name="lang" value="all" checked>
+                        <span>Все языки</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="lang" value="ru">
+                        <span>Русский</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="lang" value="en">
+                        <span>Английский</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="lang" value="zh">
+                        <span>Китайский</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        {% if query %}
+        <div class="search-results">
+            <div class="results-header">
+                <h2>Результаты поиска для "{{ query }}"</h2>
+                <div class="results-count">{{ results|length }} найдено</div>
+            </div>
+
+            {% if results %}
+            <div class="results-grid">
+                {% for term in results %}
+                <div class="term-card">
+                    <h3 class="term-title">{{ term.name }}</h3>
+                    <div class="term-meta">
+                        <span class="term-lang">{{ term.language|upper }}</span>
+                        <span class="term-category">{{ term.category }}</span>
+                    </div>
+                    <p class="term-definition">{{ term.definition }}</p>
+                    <a href="/terms/{{ term.slug }}" class="term-link">Подробнее →</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-results">
+                <p>Ничего не найдено. Попробуйте изменить запрос.</p>
+                <div class="suggestions">
+                    <p>Возможно вы ищете:</p>
+                    <ul>
+                        <li><a href="/terms/dpas">ДПАС</a></li>
+                        <li><a href="#">БПЛА</a></li>
+                        <li><a href="#">RPAS</a></li>
+                        <li><a href="#">UAV</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="search-suggestions">
+            <div class="popular-terms">
+                <h3>Популярные термины:</h3>
+                <div class="terms-grid">
+                    <a href="/terms/dpas" class="popular-term">ДПАС</a>
+                    <a href="#" class="popular-term">БПЛА</a>
+                    <a href="#" class="popular-term">RPAS</a>
+                    <a href="#" class="popular-term">UAV</a>
+                    <a href="#" class="popular-term">Квадрокоптер</a>
+                    <a href="#" class="popular-term">FPV</a>
+                    <a href="#" class="popular-term">Автопилот</a>
+                    <a href="#" class="popular-term">Телеметрия</a>
+                </div>
+            </div>
+            
+            <div class="recent-searches">
+                <h3>Ваши недавние поиски:</h3>
+                <ul>
+                    <li><a href="?q=ДПАС">ДПАС</a></li>
+                    <li><a href="?q=Антенна">Антенна</a></li>
+                    <li><a href="?q=GPS">GPS</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
