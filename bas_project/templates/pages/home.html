@@ -6,19 +6,60 @@
 {% block content %}
 <section class="hero-section">
     <div class="container">
-        <h1 class="hero-title">Переводите термины и выражения в области беспилотных авиационных систем</h1>
+        <h1 class="hero-title">
+            <span class="hero-title-line1">Переводите термины и выражения</span>
+            <span class="hero-title-line2">в области беспилотных авиационных систем</span>
+        </h1>
         
-        <div class="language-tabs">
-            <button class="tab active">Русский</button>
-            <button class="tab">Английский</button>
+        <!-- Обертка для языковых селекторов -->
+        <div class="lang-selectors-wrapper">
+            <div class="double-lang-selector">
+                <!-- Первый селектор (исходный язык) -->
+                <div class="dict-lang-selector" id="source-lang">
+                    <button class="dict-lang-current">
+                        <span class="dict-lang-selected">Русский</span>
+                        <span class="dict-lang-arrow">▼</span>
+                    </button>
+                    <div class="dict-lang-dropdown">
+                        <div class="dict-lang-item" data-lang="ru">Русский</div>
+                        <div class="dict-lang-item" data-lang="en">Английский</div>
+                        <div class="dict-lang-item" data-lang="fr">Французский</div>
+                        <div class="dict-lang-item" data-lang="es">Испанский</div>
+                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                    </div>
+                </div>
+                
+                <!-- Второй селектор (целевой язык) -->
+                <div class="dict-lang-selector" id="target-lang">
+                    <button class="dict-lang-current">
+                        <span class="dict-lang-selected">Английский</span>
+                        <span class="dict-lang-arrow">▼</span>
+                    </button>
+                    <div class="dict-lang-dropdown">
+                        <div class="dict-lang-item" data-lang="en">Английский</div>
+                        <div class="dict-lang-item" data-lang="ru">Русский</div>
+                        <div class="dict-lang-item" data-lang="fr">Французский</div>
+                        <div class="dict-lang-item" data-lang="es">Испанский</div>
+                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+    </div>
+</section>
+
+<div class="search-section">
+    <div class="container">
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Введите слово, выражение, аббревиатуру">
             <button class="search-btn">Найти</button>
         </div>
+    </div>
+</div>
 
-        <div class="info-text">
+<section class="subscription-section">
+    <div class="container">
+                <div class="info-text">
             <p>Получите перевод тысяч терминов в области беспилотников благодаря нашей технологии...</p>
             <p>Зарегистрируйтесь на сайте бесплатно, чтобы использовать сохранение в истории поисков...</p>
             <button class="btn btn-register">Зарегистрироваться</button>
@@ -51,11 +92,6 @@
         <div class="ad-placeholder">
             <p>Тут могла быть ваша реклама</p>
         </div>
-    </div>
-</section>
-
-<section class="subscription-section">
-    <div class="container">
         <h2 class="section-title">Больше возможностей с подпиской БАС+</h2>
         
         <ul class="benefits-list">
@@ -113,3 +149,4 @@
     </div>
 </section>
 {% endblock %}
+
