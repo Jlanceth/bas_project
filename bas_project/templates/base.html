@@ -16,5 +16,9 @@
     </main>
     
     {% include 'includes/footer.html' %}
+    {% block scripts %}
+    {{ block.super }}
+    <script src="/static/js/dict_lang_selector.js"></script>
+    {% endblock %}
 </body>
 </html>
