@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'dictionary:home'
+LOGIN_URL = 'login'
 
 # Application definition
 
