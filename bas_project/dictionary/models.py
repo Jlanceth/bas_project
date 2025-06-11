@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class DroneTerm(models.Model):
     term_eng = models.CharField("Термин", max_length=100)
     abbr_eng = models.CharField("Термин на английском", max_length=100)

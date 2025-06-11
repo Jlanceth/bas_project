@@ -66,11 +66,3 @@ def supply_chain(request):
 
 def term_dpas(request):
     return render(request, 'pages/term-dpas.html')
-
-
-def my_dictionary(request):
-    return render(request, 'pages/my_dictionary.html')
-
-
-def history(request):
-    return render(request, 'pages/history.html')
