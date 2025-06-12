@@ -18,6 +18,7 @@ body {
     padding: 0 20px;
 }
 
+
 /* Стили для header */
 header {
     background-color: #fff;
@@ -40,6 +41,7 @@ header {
     font-weight: bold;
     color: #2c3e50;
 }
+
 
 /* Стили для home */
 .hero-section {
@@ -83,6 +85,7 @@ header {
     margin-bottom: 20px;
 }
 
+
 /* Стили для языковых вкладок */
 .lang-selectors-wrapper {
     position: relative;
@@ -95,8 +98,8 @@ header {
 .double-lang-selector {
     display: flex;
     gap: 10px;
-    background: transparent; /* Убрал белую подложку */
-    padding: 0; /* Убрал padding */
+    background: transparent;
+    padding: 0;
 }
 
 .dict-lang-selector {
@@ -150,11 +153,12 @@ header {
     display: block;
 }
 
+
 /* Стили для поисковой строки */
 .search-section {
   position: relative;
   z-index: 2;
-  margin-top: -30px; /* Поднимаем поисковую строку над оранжевым блоком */
+  margin-top: -30px;
 }
 
 .search-container {
@@ -166,14 +170,14 @@ header {
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   padding: 5px;
   border: 1px solid #eee;
-  border-radius: 0; /* Убираем скругление у контейнера */
+  border-radius: 0;
 }
 
 .search-input {
   flex: 1;
   padding: 20px 25px;
   border: none;
-  border-radius: 0; /* Убираем скругление у поля ввода */
+  border-radius: 0;
   font-size: 18px;
   outline: none;
 }
@@ -186,7 +190,7 @@ header {
   background: #FF6B00;
   color: white;
   border: none;
-  border-radius: 0; /* Убираем скругление у кнопки */
+  border-radius: 0;
   padding: 0 30px;
   cursor: pointer;
   font-weight: bold;
@@ -223,6 +227,400 @@ header {
     padding: 0 15px;
 }
 
+
+/* Быстрые ссылки под поиском */
+.quick-links-horizontal {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 30px;
+}
+
+.quick-link-horizontal {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.quick-link-horizontal:hover {
+    background-color: #f0f0f0;
+}
+
+.quick-link-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+/* Карточка с текстом о переводе */
+/* Основные стили контейнера */
+.info-cards-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Карточка с переводом и регистрацией */
+.translation-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.translation-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+}
+
+.register-block {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid #4285f4;
+}
+
+.register-block p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+.btn-register {
+    padding: 10px 20px;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-register:hover {
+    background: #3367d6;
+}
+
+/* Карточка скачивания приложения */
+.download-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.download-title {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.app-btn:hover {
+    background: #555;
+}
+
+.app-btn img {
+    height: 20px;
+    width: auto;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .info-cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+
+/* Рекламный блок */
+.ad-card {
+    background: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+/* Общие стили для подписки и партнёров */
+.subscription-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Контейнер для подписки и партнеров */
+.subscription-container {
+    display: flex;
+    background: #FFF1EE;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #FFF1EE;
+    overflow: hidden;
+}
+
+/* Блок подписки */
+.subscription-card {
+    padding: 30px;
+    flex: 2;
+}
+
+.subscription-title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #E74C3C;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.subscription-title span {
+    text-transform: none;
+    font-size: 20px;
+    letter-spacing: normal;
+}
+
+.subscription-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.subscription-features li {
+    font-size: 15px;
+    color: #555;
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+    line-height: 1.4;
+}
+
+.subscription-features li:before {
+    content: "✓";
+    color: #E74C3C;
+    position: absolute;
+    left: 0;
+}
+
+.btn-subscribe {
+    background: #E74C3C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0 25px;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+.btn-subscribe:hover {
+    background: #C0392B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Блок партнеров */
+.partners-right {
+    flex: 1;
+    padding: 30px;
+    background: #FFF1EE;
+}
+
+.partners-title {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.partner-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.partner-logo strong {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.partner-logo span {
+    font-size: 12px;
+    color: #666;
+    display: block;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .subscription-container {
+        flex-direction: column;
+    }
+    
+    .partners-right {
+        border-left: none;
+        border-top: 1px dashed #FFC7C0;
+    }
+}
+
+
+/* Стили для секции подписки на Учусь БАС */
+.bas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Карточка подписки */
+.bas-subscription-card {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.bas-bottom-cards {
+    display: flex;
+    gap: 20px;
+}
+
+/* Карточка рекламы */
+.bas-ad-card {
+    width: 300px; /* Можно настроить под ваш дизайн */
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Общие стили для обеих карточек */
+.bas-title, .ad-title {
+    color: #2C3E50;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.bas-benefits, .ad-benefits {
+    text-align: left;
+    margin: 0 auto 20px;
+}
+
+.benefit-item {
+    padding: 8px 0;
+    color: #34495E;
+    font-size: 15px;
+}
+
+/* Стили для карточки подписки */
+.bas-cta-text {
+    color: #7F8C8D;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.bas-subscribe-btn {
+    background: #FF6B35; /* Оранжевый цвет как на фото */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+.bas-subscribe-btn:hover {
+    background: #E05A2B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 107, 53, 0.4);
+}
+
+/* Стили для рекламной карточки */
+.ad-placeholder {
+    background: #F8F9FA;
+    padding: 40px 15px;
+    color: #95A5A6;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .bas-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .bas-subscription-card,
+    .bas-ad-card {
+        width: 90%;
+    }
+}
 
 /* Стили для подвала */
 .site-footer {
