@@ -1,9 +1,56 @@
-<!-- templates/pages/terms/dpas.html -->
 {% extends '../base.html' %}
 
 {% block title %}ДПАС - Дистанционно-пилотируемая авиационная система | БАС Словарь{% endblock %}
 
 {% block content %}
+<section class="hero-section">
+    <div class="container">
+        <!-- Обертка для языковых селекторов -->
+        <div class="lang-selectors-wrapper">
+            <div class="double-lang-selector">
+                <!-- Первый селектор (исходный язык) -->
+                <div class="dict-lang-selector" id="source-lang">
+                    <button class="dict-lang-current">
+                        <span class="dict-lang-selected">Русский</span>
+                        <span class="dict-lang-arrow">▼</span>
+                    </button>
+                    <div class="dict-lang-dropdown">
+                        <div class="dict-lang-item" data-lang="ru">Русский</div>
+                        <div class="dict-lang-item" data-lang="en">Английский</div>
+                        <div class="dict-lang-item" data-lang="fr">Французский</div>
+                        <div class="dict-lang-item" data-lang="es">Испанский</div>
+                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                    </div>
+                </div>
+                
+                <!-- Второй селектор (целевой язык) -->
+                <div class="dict-lang-selector" id="target-lang">
+                    <button class="dict-lang-current">
+                        <span class="dict-lang-selected">Английский</span>
+                        <span class="dict-lang-arrow">▼</span>
+                    </button>
+                    <div class="dict-lang-dropdown">
+                        <div class="dict-lang-item" data-lang="en">Английский</div>
+                        <div class="dict-lang-item" data-lang="ru">Русский</div>
+                        <div class="dict-lang-item" data-lang="fr">Французский</div>
+                        <div class="dict-lang-item" data-lang="es">Испанский</div>
+                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Введите слово, выражение, аббревиатуру">
+            <button class="search-btn">Найти</button>
+        </div>
+    </div>
+</div>
+
 <div class="term-page">
     <div class="term-header">
         <h1>ДПАС - дистанционно-пилотируемая авиационная система</h1>
@@ -37,14 +84,8 @@
         <p><strong>Присоединяйтесь к нашему Словарю, это удобно и бесплатно!</strong></p>
         
         <div class="cta-checkboxes">
-            <label class="checkbox-item">
-                <input type="checkbox">
-                <span>Диспечер проверить</span>
-            </label>
-            <label class="checkbox-item">
-                <input type="checkbox" checked>
-                <span>Пойти</span>
-            </label>
+            <button class="btn-register">Зарегистрироваться</button>
+            <button class="btn-register">Войти</button>
         </div>
     </div>
 </div>
