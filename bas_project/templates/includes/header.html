@@ -17,13 +17,27 @@
                 <a href="#" class="btn-download">
                     <i class="fas fa-mobile-alt"></i> Скачать приложение
                 </a>
-                
-                <!-- Кнопки авторизации -->
-                <div class="auth-buttons">
-                    <a href="{% url 'login' %}" class="btn-login">Войти</a>
-                    <a href="{% url 'registration' %}" class="btn-register">Регистрация</a>
-                </div>
-                
+                {% with request.resolver_match.view_name as view_name %}
+                    {% if user.is_authenticated %}
+                        <div class = "profile-buttons">
+                        <a href = "{% url 'users:profile' user.username %}" class="btn-profile">
+                            {{ user.username }}
+                        </a>
+                        <a href = "{% url 'logout' %}" class = "btn-logout">
+                            Выйти
+                        </a>
+                        </div>
+                        
+                    {% else %}
+                        <!-- Кнопки авторизации -->
+                        <div class="auth-buttons">
+                        <a href="{% url 'login' %}" class="btn-login">Войти</a>
+                        <a href="{% url 'registration' %}" class="btn-register">Регистрация</a>
+                        </div>
+                    {% endif %}
+                    </div>
+                {% endwith %}
+        
                 <!-- Выбор языка -->
                 <div class="language-selector">
                     <div class="selected-language">RU</div>
