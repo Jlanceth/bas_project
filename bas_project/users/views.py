@@ -1,9 +1,22 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import User
-from .forms import UserForm
+from .forms import UserForm, CustomUserCreationForm
+from django.contrib.auth import login
+
 
 # Create your views here.
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('dictionary:home')
+    else:
+        form = CustomUserCreationForm()
+    return render(request,"registration/registration_form.html",{'form':form})
 
 @login_required
 def profile(request, username):
