@@ -6,43 +6,50 @@
 {% block content %}
 <section class="hero-section">
     <div class="container">
-        <h1 class="hero-title">
-            <span class="hero-title-line1">Переводите термины и выражения</span>
-            <span class="hero-title-line2">в области беспилотных авиационных систем</span>
-        </h1>
-        
-        <!-- Обертка для языковых селекторов -->
-        <div class="lang-selectors-wrapper">
-            <div class="double-lang-selector">
-                <!-- Первый селектор (исходный язык) -->
-                <div class="dict-lang-selector" id="source-lang">
-                    <button class="dict-lang-current">
-                        <span class="dict-lang-selected">Русский</span>
-                        <span class="dict-lang-arrow">▼</span>
-                    </button>
-                    <div class="dict-lang-dropdown">
-                        <div class="dict-lang-item" data-lang="ru">Русский</div>
-                        <div class="dict-lang-item" data-lang="en">Английский</div>
-                        <div class="dict-lang-item" data-lang="fr">Французский</div>
-                        <div class="dict-lang-item" data-lang="es">Испанский</div>
-                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
-                    </div>
-                </div>
+        <div class="hero-top-row">
+            <div class="hero-text-content">
+                <h1 class="hero-title">
+                    <span class="hero-title-line1">Переводите термины и выражения</span>
+                    <span class="hero-title-line2">в области беспилотных авиационных систем</span>
+                </h1>
                 
-                <!-- Второй селектор (целевой язык) -->
-                <div class="dict-lang-selector" id="target-lang">
-                    <button class="dict-lang-current">
-                        <span class="dict-lang-selected">Английский</span>
-                        <span class="dict-lang-arrow">▼</span>
-                    </button>
-                    <div class="dict-lang-dropdown">
-                        <div class="dict-lang-item" data-lang="en">Английский</div>
-                        <div class="dict-lang-item" data-lang="ru">Русский</div>
-                        <div class="dict-lang-item" data-lang="fr">Французский</div>
-                        <div class="dict-lang-item" data-lang="es">Испанский</div>
-                        <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                <!-- Обертка для языковых селекторов -->
+                <div class="lang-selectors-wrapper">
+                    <div class="double-lang-selector">
+                        <!-- Первый селектор (исходный язык) -->
+                        <div class="dict-lang-selector" id="source-lang">
+                            <button class="dict-lang-current">
+                                <span class="dict-lang-selected">Русский</span>
+                                <span class="dict-lang-arrow">▼</span>
+                            </button>
+                            <div class="dict-lang-dropdown">
+                                <div class="dict-lang-item" data-lang="ru">Русский</div>
+                                <div class="dict-lang-item" data-lang="en">Английский</div>
+                                <div class="dict-lang-item" data-lang="fr">Французский</div>
+                                <div class="dict-lang-item" data-lang="es">Испанский</div>
+                                <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                            </div>
+                        </div>
+                        <div class="lang-arrow">→</div>
+                        <!-- Второй селектор (целевой язык) -->
+                        <div class="dict-lang-selector" id="target-lang">
+                            <button class="dict-lang-current">
+                                <span class="dict-lang-selected">Английский</span>
+                                <span class="dict-lang-arrow">▼</span>
+                            </button>
+                            <div class="dict-lang-dropdown">
+                                <div class="dict-lang-item" data-lang="en">Английский</div>
+                                <div class="dict-lang-item" data-lang="ru">Русский</div>
+                                <div class="dict-lang-item" data-lang="fr">Французский</div>
+                                <div class="dict-lang-item" data-lang="es">Испанский</div>
+                                <div class="dict-lang-item" data-lang="cn">Китайский</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="hero-image">
+                <img src="/static/img/бпла.png" alt="Беспилотный летательный аппарат">
             </div>
         </div>
     </div>

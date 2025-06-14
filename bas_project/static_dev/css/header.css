@@ -47,61 +47,51 @@ header {
 }
 
 /* Кнопка скачать приложение */
-.btn-download {
-    padding: 8px 16px;
+.btn-download,
+.btn-login,
+.btn-logout,
+.btn-profile,
+.btn-register {
+    padding: 5px 10px; /* Увеличиваем padding для большего размера */
     border-radius: 4px;
-    border: 1px solid #FF6B00;
-    color: #FF6B00;
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    display: flex;
+    display: inline-flex; /* Используем flex для выравнивания иконок */
     align-items: center;
+    justify-content: center;
     gap: 8px;
     transition: all 0.3s ease;
+    min-width: 120px; /* Минимальная ширина для одинакового размера */
+    text-align: center;
 }
 
+/* Стили для кнопок с оранжевой рамкой */
+.btn-login,
+.btn-logout,
+.btn-profile,
+.btn-register,
+.btn-download {
+    background-color: transparent;
+    border: 1px solid #FF6B00;
+    color: #FF6B00;
+}
+
+/* Эффект при наведении */
+.btn-login:hover,
+.btn-logout:hover,
+.btn-profile:hover,
+.btn-register:hover,
 .btn-download:hover {
     background-color: #FF6B00;
     color: white;
 }
 
-/* Кнопки авторизации */
-.auth-buttons {
+/* Контейнеры для кнопок */
+.auth-buttons,
+.profile-buttons {
     display: flex;
-    gap: 10px;
-}
-
-.btn-login,
-.btn-register {
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.btn-login {
-    background-color: transparent;
-    border: 1px solid #FF6B00;
-    color: #FF6B00;
-}
-
-.btn-login:hover {
-    background-color: #FF6B00;
-    color: white;
-}
-
-.btn-register {
-    background-color: transparent;
-    border: 1px solid #FF6B00;
-    color: #FF6B00;
-}
-
-.btn-register:hover {
-    background-color: #FF6B00;
-    color: white;
+    gap: 12px; /* Увеличиваем расстояние между кнопками */
 }
 
 /* Выбор языка */

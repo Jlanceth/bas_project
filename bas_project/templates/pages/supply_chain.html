@@ -3,37 +3,32 @@
 {% block title %}Цепочка поставок комплектующих БАС{% endblock %}
 
 {% block content %}
-<section class="supply-chain-section">
-    <h1 class="page-title">Цепочка поставок комплектующих беспилотных авиационных систем</h1>
-    
-    <div class="search-component">
-        <input type="text" class="search-input" placeholder="Введите название комплектующего">
-        <button class="search-btn">Найти</button>
+<section class="hero-section">
+    <div class="container">
+            <h1 class="hero-title">
+            <span class="hero-title-line1">Цепочка поставок</span>
+            <span class="hero-title-line2">комплектующих беспилотных авиационных систем</span>
+                        <div class="hero-image">
+                <img src="/static/img/бпла.png" alt="Беспилотный летательный аппарат">
+            </div>
+        </h1>
+        <div class="lang-selectors-wrapper">
+        </div>
     </div>
+</section>
+
+<div class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Введите название комплектующего">
+            <button class="search-btn">Найти</button>
+        </div>
+    </div>
+</div>
+<section class="supply-chain-section">
     
-    <div class="components-grid">
-        <!-- Группа 1 -->
-        <div class="component-group">
-            <div class="component-item">Антенна приемника</div>
-            <div class="component-item">Вздравления Vie</div>
-            <div class="component-item">Приемник GPS</div>
-            <div class="component-item">Регулятор обгоняя</div>
-            <div class="component-item">Видео передатчик</div>
-            <div class="component-item">Центр тяжести</div>
-        </div>
-        
-        <!-- Группа 2 -->
-        <div class="component-group">
-            <div class="component-item">Фабрика и затяжки</div>
-            <div class="component-item">Связь в комплектах беспилотника</div>
-        </div>
-        
-        <!-- Группа 3 -->
-        <div class="component-group">
-            <div class="component-item">Коробка камера</div>
-            <div class="component-item">Аккумулятор</div>
-            <div class="component-item">Телеметрия и автомолот</div>
-        </div>
+    <div class="aircraft-image-container">
+        <img src="/static/img/Самолет_2.png" alt="Беспилотный летательный аппарат" class="aircraft-image">
     </div>
     
     <div class="supply-description">

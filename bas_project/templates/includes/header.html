@@ -21,7 +21,7 @@
                     {% if user.is_authenticated %}
                         <div class = "profile-buttons">
                         <a href = "{% url 'users:profile' user.username %}" class="btn-profile">
-                            {{ user.username }}
+                            Профиль
                         </a>
                         <a href = "{% url 'logout' %}" class = "btn-logout">
                             Выйти
@@ -29,7 +29,6 @@
                         </div>
                         
                     {% else %}
-                        <!-- Кнопки авторизации -->
                         <div class="auth-buttons">
                         <a href="{% url 'login' %}" class="btn-login">Войти</a>
                         <a href="{% url 'registration' %}" class="btn-register">Регистрация</a>
