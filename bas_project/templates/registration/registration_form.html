@@ -1,18 +1,51 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
+{% load static %}
 {% block content %}
-  <div class="col d-flex justify-content-center">
-    <div class="card" style="width: 40rem;">
-      <div class="card-header">
-        Регистрация пользователя
-      </div>
-      <div class="card-body">
-        <form method="post">
-          {% csrf_token %}
-          {% bootstrap_form form %}
-          {% bootstrap_button button_type="submit" content="Создать" %}
-        </form>
+<div class="registration-container">
+  <div class="registration-header">
+    <h1>Регистрация</h1>
+    <p>Создайте аккаунт, чтобы получить доступ к истории поиска и списку избранного</p>
+  </div>
+
+  <form method="post" class="registration-form">
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <h2>Логин</h2>
+      <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" 
+             maxlength="150" required id="id_username" class="form-control" placeholder="Например, Иван Иванов">
+      <div class="form-hint">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_</div>
+    </div>
+    
+    <div class="form-group">
+      <h2>Пароль</h2>
+      <input type="password" name="password1" autocomplete="new-password" required id="id_password1" class="form-control">
+      <div class="password-requirements">
+        <ul>
+          <li>Минимум 6 символов</li>
+          <li>Содержит специальные символы</li>
+          <li>Содержит цифры</li>
+          <li>Содержит заглавные и прописные буквы</li>
+        </ul>
       </div>
     </div>
+    
+    <div class="form-group">
+      <h2>Подтверждение пароля</h2>
+      <input type="password" name="password2" autocomplete="new-password" required id="id_password2" class="form-control">
+      <div class="form-hint">Для подтверждения введите, пожалуйста, пароль ещё раз.</div>
+    </div>
+    
+    <button type="submit" class="registration-button">Создать</button>
+  </form>
+
+  <div class="login-link">
+    Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a>
   </div>
+</div>
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'js/password-validation.js' %}"></script>
+{% endblock %}
 {% endblock %}

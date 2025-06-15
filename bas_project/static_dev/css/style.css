@@ -1102,88 +1102,50 @@ header {
 
 /* Стили страницы термина */
 .term-page {
+    font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 20px;
 }
 
 .term-header h1 {
-    font-size: 28px;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #3498db;
+    color: #333;
+    border-bottom: 2px solid #eee;
     padding-bottom: 10px;
 }
 
 .term-translation {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.term-translation h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #3498db;
+    margin: 20px 0;
 }
 
 .translation-table {
-    display: table;
     width: 100%;
     border-collapse: collapse;
+    margin: 10px 0;
 }
 
 .table-row {
-    display: table-row;
+    display: flex;
+    border-bottom: 1px solid #ddd;
 }
 
 .table-row.header {
     font-weight: bold;
-    background: #eaf2f8;
+    background-color: #f5f5f5;
 }
 
 .table-cell {
-    display: table-cell;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+    padding: 10px;
+    flex: 1;
 }
 
-.term-definition {
-    margin-bottom: 30px;
+.term-definition, .term-context {
+    margin: 20px 0;
 }
 
-.term-definition h2,
-.term-context h3 {
-    font-size: 22px;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.term-definition p,
-.term-context p {
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.term-context {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-.term-cta {
-    text-align: center;
-    padding: 20px;
-    background: #FFF1EE;
-    border-radius: 8px;
-    max-width: 600px;
-}
-
-.term-cta p {
-    font-size: 18px;
-    margin-bottom: 20px;
+.term-definition h2, .term-context h3 {
+    color: #444;
+    margin-bottom: 10px;
 }
 
 .cta-checkboxes {
@@ -1350,3 +1312,510 @@ a:focus, button:focus, input:focus {
     }
 }
 
+
+/* Логин */
+.login-container {
+  max-width: 400px;
+  margin: 50px   auto;
+  padding: 2rem;
+  background: #FFE0DA;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #F34D29;
+}
+
+.login-header p {
+  color: #D97272;
+  font-size: 1rem;
+}
+
+.login-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #F34D29;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #F34D29;
+}
+
+.forgot-password {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #FF6B00;
+    color: #FF6B00;
+}
+
+.login-button:hover {
+    background-color: #FF6B00;
+    color: white;
+}
+
+.forgot-password {
+  color: #bf5000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  color: #3a5f8a;
+  text-decoration: underline;
+}
+
+.register-link {
+  text-align: center;
+  color: #F34D29;
+  font-size: 1.1rem;
+}
+
+.register-link a {
+  color: #bf5000;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Регистрация */
+.registration-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #FFE0DA;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.registration-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #F34D29;
+}
+
+.registration-header p {
+  color: #D97272;
+  font-size: 1rem;
+}
+
+.registration-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #F34D29;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-hint {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.password-requirements {
+  margin-top: 0.5rem;
+}
+
+.password-requirements ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.password-requirements li {
+  margin-bottom: 0.3rem;
+}
+
+.registration-button {
+  width: 100%;
+  background-color: transparent;
+  color: #FF6B00;
+  border: 1px solid #FF6B00;
+  padding: 0.9rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.registration-button:hover {
+    background-color: #FF6B00;
+    color: white;
+}
+
+.login-link {
+  text-align: center;
+  color: #F34D29;
+  font-size: 1.1rem;
+}
+
+.login-link a {
+  color: #bf5000;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Профиль */
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #FFE0DA;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(243, 77, 41, 0.1);
+}
+
+.profile-title {
+  color: #F34D29;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.profile-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.info-value {
+  color: #2c3e50;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.profile-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.edit-btn {
+  background-color: #F34D29;
+  color: white;
+  border: 1px solid #F34D29;
+}
+
+.edit-btn:hover {
+  background-color: #d14023;
+}
+
+.password-btn {
+  background-color: transparent;
+  color: #F34D29;
+  border: 1px solid #F34D29;
+}
+
+.password-btn:hover {
+  background-color: rgba(243, 77, 41, 0.1);
+}
+
+
+/* Редактирование профиля */
+/* Profile Edit Styles */
+.profile-edit-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #FFE0DA;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(243, 77, 41, 0.1);
+}
+
+.profile-edit-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-edit-header h2 {
+  color: #F34D29;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.username {
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+.profile-edit-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  background-color: #F34D29;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #d14023;
+}
+
+.cancel-btn {
+  color: #F34D29;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #F34D29;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(243, 77, 41, 0.1);
+}
+
+/* Bootstrap form overrides */
+.form-control:focus {
+  border-color: #F34D29;
+  box-shadow: 0 0 0 0.25rem rgba(243, 77, 41, 0.25);
+}
+
+.form-label {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+
+/* Редактирование пароля */
+.password-change-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #FFE0DA;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(243, 77, 41, 0.1);
+}
+
+.password-change-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.password-change-header h2 {
+  color: #F34D29;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.password-change-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.password-change-form .form-text {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.password-change-form .alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.password-change-form .alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.password-change-form .alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  background-color: #F34D29;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #d14023;
+}
+
+.cancel-btn {
+  color: #F34D29;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #F34D29;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(243, 77, 41, 0.1);
+}
+
+/* Стили для пунктов требований */
+.requirement {
+  margin: 0.25rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  transition: color 0.3s;
+  list-style-type: none;
+}
+
+.requirement:before {
+  position: absolute;
+  left: 0;
+}
+
+.requirement.valid {
+  color: #28a745;
+}
+
+.requirement.valid:before {
+  content: "✓";
+}
+
+.requirement.invalid {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.requirement.invalid:before {
+  content: "✗";
+}

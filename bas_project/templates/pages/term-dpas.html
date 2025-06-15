@@ -59,40 +59,45 @@
 
 <div class="term-page">
     <div class="term-header">
-        <h1>ДПАС - дистанционно-пилотируемая авиационная система</h1>
+        <h1>{{term_title}} - {{term_full_name}}</h1>
         
         <div class="term-translation">
-            <h2>Перевод "ДПАС" на английский</h2>
+            <h2>Перевод "{{term_title}}" на {{target_language}}</h2>
             <div class="translation-table">
                 <div class="table-row header">
                     <div class="table-cell">Словосочетание</div>
                     <div class="table-cell">Общие понятия</div>
                 </div>
+                {% for translation in translations %}
                 <div class="table-row">
-                    <div class="table-cell">remotely-piloted aircraft system</div>
-                    <div class="table-cell">RPAS</div>
+                    <div class="table-cell">{{translation.phrase}}</div>
+                    <div class="table-cell">{{translation.concept}}</div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 
     <div class="term-definition">
         <h2>Определение</h2>
-        <p>A set of configurable elements consisting of a remotely-piloted aircraft, its associated remote pilot stations[s], the required command and control links and any other system elements as may be required, at any point during flight operation.</p>
+        <p>{{definition}}</p>
     </div>
 
     <div class="term-context">
         <h3>Контекст</h3>
-        <p>Most of the information in SkYbrary pertains to small RPAS because many civilian aviation industry stakeholders are involved in the integration of small RPAS or drones — unlike larger RPAS — into national airspace systems any may have some responsibility for addressing smallRPAS operational safety issues likely to impact manned aviation.</p>
+        <p>{{context}}</p>
     </div>
+</div>
 
-    <div class="term-cta">
-        <p><strong>Присоединяйтесь к нашему Словарю, это удобно и бесплатно!</strong></p>
-        
-        <div class="cta-checkboxes">
-            <button class="btn-register">Зарегистрироваться</button>
-            <button class="btn-register">Войти</button>
-        </div>
-    </div>
+        {% if not user.is_authenticated %}
+            <div class="term-cta">
+                <p><strong>Присоединяйтесь к нашему Словарю, это удобно и бесплатно!</strong></p>
+                
+                <div class="cta-checkboxes">
+                    <a href="{% url 'registration' %}" class="btn-register">Зарегистрироваться</a>
+                    <a href="{% url 'login' %}" class="btn-register">Войти</a>
+                </div>
+            </div>
+        {% endif %}
 </div>
 {% endblock %}
