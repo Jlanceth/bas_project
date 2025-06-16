@@ -12,6 +12,11 @@
     </div>
     
     <div class="info-item">
+      <span class="info-label">Email:</span>
+      <span class="info-value">{% if profile.email %}{{ profile.email }}{% else %}не указан{% endif %}</span>
+    </div>
+
+    <div class="info-item">
       <span class="info-label">Регистрация:</span>
       <span class="info-value">{{ profile.date_joined }}</span>
     </div>
