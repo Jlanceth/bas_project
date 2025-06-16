@@ -30,10 +30,11 @@
       <input type="password" name="password1" autocomplete="new-password" required id="id_password1" class="form-control">
       <div class="password-requirements">
         <ul>
-          <li>Минимум 6 символов</li>
-          <li>Содержит специальные символы</li>
-          <li>Содержит цифры</li>
-          <li>Содержит заглавные и прописные буквы</li>
+          <li class="requirement">Минимум 8 символов</li>
+          <li class="requirement">Содержит специальные символы</li>
+          <li class="requirement">Содержит цифры</li>
+          <li class="requirement">Содержит заглавные и прописные буквы</li>
+          <li class="requirement">Пароли должны совпадать</li>
         </ul>
       </div>
     </div>
@@ -53,6 +54,6 @@
 </div>
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'js/password-validation.js' %}"></script>
+  <script src="{% static 'js/registration.js' %}"></script>
 {% endblock %}
 {% endblock %}

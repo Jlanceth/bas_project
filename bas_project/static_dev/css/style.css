@@ -1819,3 +1819,34 @@ a:focus, button:focus, input:focus {
 .requirement.invalid:before {
   content: "✗";
 }
+
+.password-requirements {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.password-requirements ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 5px 0 0 0;
+}
+
+.password-requirements .requirement {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+}
+
+.password-requirements .requirement:before {
+  content: "✗";
+  color: #dc3545;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.password-requirements .requirement.valid:before {
+  content: "✓";
+  color: #28a745;
+}

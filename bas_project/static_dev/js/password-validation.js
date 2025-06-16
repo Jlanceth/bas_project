@@ -13,12 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       isSyncing = true;
       validatePassword.call(this);
-      
-      // Если удаляем символы в первом поле, удаляем их и во втором
-      if (passwordConfirm.value.length > this.value.length) {
-        passwordConfirm.value = this.value;
-      }
-      
       validatePasswordMatch();
       isSyncing = false;
     });
@@ -28,13 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isSyncing) return;
       
       isSyncing = true;
-      
-      // Если удаляем символы во втором поле, удаляем их и в первом
-      if (passwordInput.value.length > this.value.length) {
-        passwordInput.value = this.value;
-        validatePassword.call(passwordInput);
-      }
-      
       validatePasswordMatch();
       isSyncing = false;
     });
@@ -44,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     validatePasswordMatch();
   }
 
-  // Проверка требований к паролю (без изменений)
+  // Проверка требований к паролю
   function validatePassword() {
     const value = this.value;
     const form = this.closest('form');
@@ -72,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Проверка совпадения паролей (без изменений)
+  // Проверка совпадения паролей
   function validatePasswordMatch() {
     if (!passwordInput || !passwordConfirm) return;
     
