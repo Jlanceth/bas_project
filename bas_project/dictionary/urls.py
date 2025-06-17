@@ -10,4 +10,5 @@ urlpatterns = [
     path('legal/', views.legal, name='legal'),
     path('supply-chain/', views.supply_chain, name='supply_chain'),
     path('terms/dpas/', views.term_dpas, name='term_dpas'),
+    path('terms/<int:term_id>/add-to-favorites/', views.add_to_favorites, name='add_to_favorites'),
 ]
