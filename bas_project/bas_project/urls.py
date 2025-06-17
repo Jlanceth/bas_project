@@ -5,17 +5,13 @@ from django.conf.urls.static import static
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import include, path, reverse_lazy
+from users import views
 
 
 auth_urls = [
     path(
         'auth/registration/',
-        CreateView.as_view(
-            template_name='registration/registration_form.html',
-            form_class=UserCreationForm,
-            success_url=reverse_lazy('dictionary:home'),
-        ),
-        name='registration',
+        views.register, name='registration',
     ),
 ]
 

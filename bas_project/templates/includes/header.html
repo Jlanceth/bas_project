@@ -23,7 +23,7 @@
                         <a href = "{% url 'users:profile' user.username %}" class="btn-profile">
                             Профиль
                         </a>
-                        <a href = "{% url 'logout' %}" class = "btn-logout">
+                        <a href="{% url 'logout' %}?next={% url 'dictionary:home' %}" class="btn-logout">
                             Выйти
                         </a>
                         </div>
