@@ -1,6 +1,6 @@
 {% extends '../base.html' %}
 
-{% block title %}ДПАС - Дистанционно-пилотируемая авиационная система | БАС Словарь{% endblock %}
+{% block title %}Определение термина | БАС Словарь{% endblock %}
 
 {% block content %}
 <section class="hero-section">
@@ -11,13 +11,13 @@
                 <img src="/static/img/бпла.png" alt="Беспилотный летательный аппарат">
             </div>
         </h1>
-        <!-- Обертка для языковых селекторов -->
+
+        <!-- Языковые селекторы -->
         <div class="lang-selectors-wrapper">
             <div class="double-lang-selector">
-                <!-- Первый селектор (исходный язык) -->
                 <div class="dict-lang-selector" id="source-lang">
                     <button class="dict-lang-current">
-                        <span class="dict-lang-selected">Русский</span>
+                        <span class="dict-lang-selected" data-lang="{{ source_lang }}">{{ source_lang }}</span>
                         <span class="dict-lang-arrow">▼</span>
                     </button>
                     <div class="dict-lang-dropdown">
@@ -29,10 +29,9 @@
                     </div>
                 </div>
                 <div class="lang-arrow">→</div>
-                <!-- Второй селектор (целевой язык) -->
                 <div class="dict-lang-selector" id="target-lang">
                     <button class="dict-lang-current">
-                        <span class="dict-lang-selected">Английский</span>
+                        <span class="dict-lang-selected" data-lang="{{ target_lang }}">{{ target_lang }}</span>
                         <span class="dict-lang-arrow">▼</span>
                     </button>
                     <div class="dict-lang-dropdown">
@@ -48,56 +47,55 @@
     </div>
 </section>
 
-<div class="search-section">
-    <div class="container">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Введите слово, выражение, аббревиатуру">
-            <button class="search-btn">Найти</button>
-        </div>
-    </div>
-</div>
-
-<div class="term-page">
+{% if term %}
+<div class="term-page container">
     <div class="term-header">
-        <h1>{{term_title}} - {{term_full_name}}</h1>
-        
-        <div class="term-translation">
-            <h2>Перевод "{{term_title}}" на {{target_language}}</h2>
-            <div class="translation-table">
-                <div class="table-row header">
-                    <div class="table-cell">Словосочетание</div>
-                    <div class="table-cell">Общие понятия</div>
-                </div>
-                {% for translation in translations %}
-                <div class="table-row">
-                    <div class="table-cell">{{translation.phrase}}</div>
-                    <div class="table-cell">{{translation.concept}}</div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+        <h2>
+            {% if source_lang == 'ru' %}
+                {{ term.term_rus }}{% if term.abbr_rus %} ({{ term.abbr_rus }}){% endif %}
+            {% else %}
+                {{ term.term_eng }}{% if term.abbr_eng %} ({{ term.abbr_eng }}){% endif %}
+            {% endif %}
+        </h2>
 
-    <div class="term-definition">
-        <h2>Определение</h2>
-        <p>{{definition}}</p>
-    </div>
+        {% if source_lang == 'ru' and target_lang == 'en' %}
+            <h3>Перевод на английский:</h3>
+            <p>{{ term.term_eng }}{% if term.abbr_eng %} ({{ term.abbr_eng }}){% endif %}</p>
+            <h4>Контекст:</h4>
+            <p>{{ term.context_eng|default:"Контекст отсутствует." }}</p>
+            <h4>Определение:</h4>
+            <p>{{ term.definition_eng|default:"Определение отсутствует." }}</p>
 
-    <div class="term-context">
-        <h3>Контекст</h3>
-        <p>{{context}}</p>
-    </div>
-</div>
+        {% elif source_lang == 'en' and target_lang == 'ru' %}
+            <h3>Перевод на русский:</h3>
+            <p>{{ term.term_rus }}{% if term.abbr_rus %} ({{ term.abbr_rus }}){% endif %}</p>
+            <h4>Контекст:</h4>
+            <p>{{ term.context_rus|default:"Контекст отсутствует." }}</p>
+            <h4>Определение:</h4>
+            <p>{{ term.definition_rus|default:"Определение отсутствует." }}</p>
 
-        {% if not user.is_authenticated %}
-            <div class="term-cta">
-                <p><strong>Присоединяйтесь к нашему Словарю, это удобно и бесплатно!</strong></p>
-                
-                <div class="cta-checkboxes">
-                    <a href="{% url 'registration' %}" class="btn-register">Зарегистрироваться</a>
-                    <a href="{% url 'login' %}" class="btn-register">Войти</a>
-                </div>
-            </div>
+        {% else %}
+            <p><em>Перевод для выбранной языковой пары недоступен.</em></p>
         {% endif %}
+    </div>
+
+    <div class="term-cta">
+        <p><strong>Добавьте термин в избранное или изучите другие определения!</strong></p>
+
+        {% if user.is_authenticated %}
+        <form action="{% url 'dictionary:add_to_favorites' term.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-register">Добавить в избранное</button>
+        </form>
+        {% else %}
+        <p><a href="{% url 'login' %}">Войдите</a>, чтобы добавлять термины в избранное.</p>
+        {% endif %}
+    </div>
 </div>
+{% else %}
+<div class="container">
+    <h2>Термин не найден</h2>
+    <p>Попробуйте изменить запрос или язык поиска.</p>
+</div>
+{% endif %}
 {% endblock %}

@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     // Иначе просто устанавливаем выбранный язык
                     selected.textContent = this.textContent;
+                    selected.setAttribute('data-lang', lang);
                     dropdown.style.display = 'none';
                 }
             });
@@ -43,12 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Функция смены языков местами
     function swapLanguages() {
-        const sourceLang = sourceSelector.querySelector('.dict-lang-selected');
-        const targetLang = targetSelector.querySelector('.dict-lang-selected');
-        const temp = sourceLang.textContent;
+        const sourceSelected = sourceSelector.querySelector('.dict-lang-selected');
+        const targetSelected = targetSelector.querySelector('.dict-lang-selected');
+        const tempText = sourceSelected.textContent;
+        const tempLang = sourceSelected.getAttribute('data-lang');
         
-        sourceLang.textContent = targetLang.textContent;
-        targetLang.textContent = temp;
+        // Меняем местами текст и атрибуты data-lang
+        sourceSelected.textContent = targetSelected.textContent;
+        sourceSelected.setAttribute('data-lang', targetSelected.getAttribute('data-lang'));
+        
+        targetSelected.textContent = tempText;
+        targetSelected.setAttribute('data-lang', tempLang);
         
         // Закрываем все выпадающие списки
         document.querySelectorAll('.dict-lang-dropdown').forEach(d => {
@@ -65,4 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
             d.style.display = 'none';
         });
     });
+});
+
+document.querySelector('.search-btn')?.addEventListener('click', function () {
+    const queryInput = document.querySelector('.search-input');
+    const sourceLang = document.querySelector('#source-lang .dict-lang-selected').getAttribute('data-lang');
+    const targetLang = document.querySelector('#target-lang .dict-lang-selected').getAttribute('data-lang');
+    const query = queryInput.value.trim();
+
+    if (query) {
+        window.location.href = `/search/?query=${encodeURIComponent(query)}&source_lang=${sourceLang}&target_lang=${targetLang}`;
+    }
 });

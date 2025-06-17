@@ -2,8 +2,21 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import DroneTerm
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from .models import DroneTerm, Favorite, Language
 from .forms import SearchForm
+
+
+def term_detail(request, term_id):
+    term = get_object_or_404(DroneTerm, pk=term_id)
+    source_lang = request.GET.get('source_lang', 'ru')
+    target_lang = request.GET.get('target_lang', 'en')
+    return render(request, 'pages/term-detail.html', {
+        'term': term,
+        'source_lang': source_lang,
+        'target_lang': target_lang
+    })
 
 
 def term_search(request):
@@ -11,49 +24,36 @@ def term_search(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
-            terms = DroneTerm.objects.filter(term__icontains=query)
-            return render(request, 'pages/search.html', {'terms': terms})
+            source_lang = request.GET.get('source_lang', 'ru')
+            target_lang = request.GET.get('target_lang', 'en')
+
+            if source_lang == 'ru':
+                term = DroneTerm.objects.filter(term_rus__iexact=query).first()
+            else:
+                term = DroneTerm.objects.filter(term_eng__iexact=query).first()
+
+            if term:
+                # сохраняем в историю
+                if request.user.is_authenticated:
+                    from .models import SearchHistory
+                    SearchHistory.objects.create(user=request.user, term=term, query=query)
+
+                return render(request, 'pages/term-dpas.html', {
+                    'term': term,
+                    'source_lang': source_lang,
+                    'target_lang': target_lang
+                })
+            else:
+                messages.error(request, 'Термин не найден')
     else:
         form = SearchForm()
-    return render(request, 'pages/search.html', {'form': form})
+        
+    return render(request, 'pages/term-dpas.html', {'form': form})
 
 
 def home(request):
     template_name = 'pages/home.html'
     return render(request, template_name)
-
-
-def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            auth_login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'Неверный логин или пароль')
-
-    return render(request, 'auth/login.html')
-
-
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Аккаунт создан для {username}!')
-            return redirect('login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'auth/register.html', {'form': form})
-
-
-def forgot_password(request):
-    # Логика восстановления пароля
-    return render(request, 'auth/forgot_password.html')
 
 
 def legal(request):
@@ -66,3 +66,10 @@ def supply_chain(request):
 
 def term_dpas(request):
     return render(request, 'pages/term-dpas.html')
+
+
+@login_required
+def add_to_favorites(request, term_id):
+    term = get_object_or_404(DroneTerm, pk=term_id)
+    Favorite.objects.get_or_create(user=request.user, term=term)
+    return redirect('dictionary:term_dpas', term_id=term.id)
